@@ -8,7 +8,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import selectNavigationContainer from './selectors';
 import Navigation from '../../components/Navigation';
-import {fetchTopics, setSelectedTopic} from './actions';
+import {fetchTopics, setSelectedTopic, toggleMenu} from './actions';
 
 export class NavigationContainer extends React.Component { // eslint-disable-line react/prefer-stateless-function
   render() {
@@ -35,7 +35,8 @@ const mapStateToProps = selectNavigationContainer();
 function mapDispatchToProps(dispatch) {
   return {
     fetchTopics: () => dispatch(fetchTopics()),
-    selectTopic: (topic) => dispatch(setSelectedTopic(topic))
+    selectTopic: (topic) => dispatch(setSelectedTopic(topic)),
+    toggleMenu: () => dispatch(toggleMenu())
   };
 }
 
